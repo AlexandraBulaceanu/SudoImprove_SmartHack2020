@@ -85,6 +85,8 @@ String.prototype.format = function () {
     return a
 }
 
+var products
+
 function showDetails(prod, rating, shop, category) {
     const str = '<p>Producer: {0}</p><p>Rating: {1}</p><p>Shop Name: {2}</p><p>Category: {3}</p>'.format(prod, rating, shop, category)
     document.getElementById('viewProductModalBody').innerHTML = str
@@ -123,91 +125,88 @@ function getProducts() {
         products.reverse()
         productList.innerHTML = ''
         products.forEach(product => {
-            // var htmlText = '<div class="card-body" style="display: flex; justify-content: space-between;"> <h4 class="font-weight-bold" style="margin: auto 0 auto 0;">' + product.product_name + '</h4> <div class="product-buttons"> <a href="#" class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#viewProductModal"> <i class="fas fa-check"></i> </a> <a href="#" class="btn btn-danger btn-circle btn-lg"> <i class="fas fa-trash"></i> </a> </div></div>'
-            
-            var div1 = document.createElement('div')
-            div1.class = 'modal fade'
-            div1.id = viewProductModal
-            div1.tabindex = '-1' 
-            div1.role = 'dialog'
-            div1.setAttribute('aria-labelledby', 'exampleModalLabel')
-            div1.setAttribute('aria-hidden', 'true')
-
-            var div2 = document.createElement('div')
-            div2.class = 'modal-dialog'
-            div2.role = 'document'
-            
-            var div3 = document.createElement('div')
-            div3.class = 'modal-content'
-
-            var div4 = document.createElement('div')
-            div4.class = 'modal-header'
-
-            var h = document.createElement('h5')
-            h.class = 'modal-title'
-            h.id = 'exampleModalLabel'
-            h.innerHTML = 'Add to a shoping list'
-
-            var button = document.createElement('button')
-            button.class = 'close'
-            button.type = 'button'
-            button.setAttribute('data-dismiss', 'modal')
-            button.setAttribute('aria-label', 'Close')
-
-            var span = document.createElement('span')
-            span.setAttribute('aria-hidden', 'true')
-            span.innerHTML = 'x'
-
-            // --------------------
-
-            var divvv1 = document.createElement('div')
-            divvv1.id = 'viewProductModalBody'
-            divvv1.class = 'modal-body'
-
-
-            var divvv2 = document.createElement('div')
-            divvv2.class = 'modal-footer'
-
-            var button2 = document.createElement('button')
-            button2.class = 'btn btn-secondary'
-            button2.type = 'button'
-            button2.setAttribute('data-dismiss', 'modal')
-            button2.innerHTML = 'Cancel'
-
-            var a = document.createElement('a')
-            a.href = '#'
-            a.class = 'btn btn-success btn-icon-split'
-
-            var span2 = document.createElement('span')
-            span.class = 'icon text-white-50'
-
-            var i = document.createElement('i')
-            i.class = 'fas fa-check'
-
-            var span3 = document.createElement('span')
-            span3.id = 'addProductToShoppingList'
-            span3.class = 'text'
-            span3.innerHTML = 'Add it to shoping list'
-
-            span2.innerHTML = i
-            a.innerHTML = span2
-
-            divvv2.innerHTML = button2
-            divvv2.innerHTML += a
-
-            button.innerHTML = span
-            div4.innerHTML = h
-            div4.innerHTML += button
-
-            div3.innerHTML = div4
-            div2.innerHTML = div3
-            div1.innerHTML = div2
+            var htmlText = '<div class="card-body" style="display: flex; justify-content: space-between;"> <h4 class="font-weight-bold" style="margin: auto 0 auto 0;">' + product.product_name + '</h4> <div class="product-buttons"> <a href="#" class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#viewProductModal"> <i class="fas fa-check"></i> </a> <a href="#" class="btn btn-danger btn-circle btn-lg"> <i class="fas fa-trash"></i> </a> </div></div>'
             
 
-            
-            showDetails(product.producer, product,rating, product.shop, product.category)
+            productList.innerHTML += htmlText
 
-            // productList.innerHTML += htmlText
+            // var div1 = document.createElement('div')
+            // div1.class = 'modal fade'
+            // div1.id = viewProductModal
+            // div1.tabindex = '-1' 
+            // div1.role = 'dialog'
+            // div1.setAttribute('aria-labelledby', 'exampleModalLabel')
+            // div1.setAttribute('aria-hidden', 'true')
+
+            // var div2 = document.createElement('div')
+            // div2.class = 'modal-dialog'
+            // div2.role = 'document'
+            
+            // var div3 = document.createElement('div')
+            // div3.class = 'modal-content'
+
+            // var div4 = document.createElement('div')
+            // div4.class = 'modal-header'
+
+            // var h = document.createElement('h5')
+            // h.class = 'modal-title'
+            // h.id = 'exampleModalLabel'
+            // h.innerHTML = 'Add to a shoping list'
+
+            // var button = document.createElement('button')
+            // button.class = 'close'
+            // button.type = 'button'
+            // button.setAttribute('data-dismiss', 'modal')
+            // button.setAttribute('aria-label', 'Close')
+
+            // var span = document.createElement('span')
+            // span.setAttribute('aria-hidden', 'true')
+            // span.innerHTML = 'x'
+
+            // // --------------------
+
+            // var divvv1 = document.createElement('div')
+            // divvv1.id = 'viewProductModalBody'
+            // divvv1.class = 'modal-body'
+
+
+            // var divvv2 = document.createElement('div')
+            // divvv2.class = 'modal-footer'
+
+            // var button2 = document.createElement('button')
+            // button2.class = 'btn btn-secondary'
+            // button2.type = 'button'
+            // button2.setAttribute('data-dismiss', 'modal')
+            // button2.innerHTML = 'Cancel'
+
+            // var a = document.createElement('a')
+            // a.href = '#'
+            // a.class = 'btn btn-success btn-icon-split'
+
+            // var span2 = document.createElement('span')
+            // span.class = 'icon text-white-50'
+
+            // var i = document.createElement('i')
+            // i.class = 'fas fa-check'
+
+            // var span3 = document.createElement('span')
+            // span3.id = 'addProductToShoppingList'
+            // span3.class = 'text'
+            // span3.innerHTML = 'Add it to shoping list'
+
+            // span2.innerHTML = i
+            // a.innerHTML = span2
+
+            // divvv2.innerHTML = button2
+            // divvv2.innerHTML += a
+
+            // button.innerHTML = span
+            // div4.innerHTML = h
+            // div4.innerHTML += button
+
+            // div3.innerHTML = div4
+            // div2.innerHTML = div3
+            // div1.innerHTML = div2
         })
     })
 }
