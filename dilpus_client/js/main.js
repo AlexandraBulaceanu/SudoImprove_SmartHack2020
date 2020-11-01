@@ -126,7 +126,7 @@ addProduct.addEventListener('click', (event) => {
 // function showPosition(position) {
 //     var latlon = position.coords.latitude + "," + position.coords.longitude;
 
-//     var img_url = "https://maps.googleapis.com/maps/api/staticmap?center=\"+latlon+\"&zoom=14&size=400x300&sensor=false&key=AIzaSyCeV4P8SW37KgmJpEu6Jdl_J2jLrFH_PbE";
+//     var img_url = "https://maps.googleapis.com/maps/api/staticmap?center=\"+latlon+\"&zoom=14&size=400x300&sensor=false&key=API_KEY";
 
 //     document.getElementById("THE_ID").innerHTML = "<img src='" + img_url + "'>";
 // }
