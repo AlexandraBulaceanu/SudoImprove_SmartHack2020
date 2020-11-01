@@ -31,3 +31,7 @@
 .star-rating {
     margin: 1rem .1rem 0 auto;
 }
+
+#viewProductModalBody div p:nth-child(1) {
+  color: red;
+} 

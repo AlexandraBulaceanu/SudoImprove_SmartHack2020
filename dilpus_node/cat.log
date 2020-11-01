@@ -1,0 +1,31 @@
+{"message":"hello?","level":"info","service":"user-service","timestamp":"2020-06-27 00:45:48"}
+{"message":"hello?","level":"error","service":"user-service","timestamp":"2020-06-27 00:46:38"}
+{"message":"hello?","level":"error","service":"user-service","timestamp":"2020-06-27 00:46:50"}
+{"message":"hello?","level":"error","service":"user-service","timestamp":"2020-06-27 00:46:53"}
+{"message":"This is the request ${req.body}","level":"info","service":"user-service","timestamp":"2020-06-27 00:51:12"}
+{"message":{},"level":"info","service":"user-service","timestamp":"2020-06-27 00:51:12"}
+{"message":{},"level":"info","service":"user-service","timestamp":"2020-06-27 00:52:49"}
+{"message":{"uid":"asdasd"},"level":"info","service":"user-service","timestamp":"2020-06-27 00:53:05"}
+{"message":"User ${req.query.uid} made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-27 00:53:48"}
+{"message":"User asdasd made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-27 00:55:41"}
+{"message":"User GJ4SsXQF9IfVyirXiaKe2L8nwJa2 made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-27 01:42:01"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef5f4f48a9037155ea2da73","level":"info","service":"user-service","timestamp":"2020-06-27 01:43:42"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef5f4f48a9037155ea2da73","level":"warn","service":"user-service","timestamp":"2020-06-27 01:43:51"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a4c96308e69c92f1cca","level":"warn","service":"user-service","timestamp":"2020-06-27 01:44:30"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a4c96308e69c92f1cca","level":"warn","service":"user-service","timestamp":"2020-06-27 01:44:33"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a4c96308e69c92f1cca","level":"warn","service":"user-service","timestamp":"2020-06-27 01:44:35"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a4c96308e69c92f1cca","level":"warn","service":"user-service","timestamp":"2020-06-27 01:44:35"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a4c96308e69c92f1cca","level":"warn","service":"user-service","timestamp":"2020-06-27 01:44:36"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a4c96308e69c92f1cca","level":"warn","service":"user-service","timestamp":"2020-06-27 01:44:36"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a6396308e69c92f1ccb","level":"warn","service":"user-service","timestamp":"2020-06-27 01:44:52"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67a6d6bc6496a8e7168af","level":"warn","service":"user-service","timestamp":"2020-06-27 01:45:03"}
+{"message":"User GJ4SsXQF9IfVyirXiaKe2L8nwJa2 made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-27 01:52:19"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 added admin: test_for_the_logger","level":"warn","service":"user-service","timestamp":"2020-06-27 01:52:34"}
+{"message":"User GJ4SsXQF9IfVyirXiaKe2L8nwJa2 made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-27 01:54:53"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 created a post with content: test teasd asd asd as","level":"info","service":"user-service","timestamp":"2020-06-27 01:56:33"}
+{"message":"User GJ4SsXQF9IfVyirXiaKe2L8nwJa2 made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-28 17:33:06"}
+{"message":"User GJ4SsXQF9IfVyirXiaKe2L8nwJa2 made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-28 17:33:13"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 added admin: aslkdjaslkdka'sl;","level":"warn","service":"user-service","timestamp":"2020-06-28 17:33:20"}
+{"message":"User GJ4SsXQF9IfVyirXiaKe2L8nwJa2 made a request to get the admins.","level":"info","service":"user-service","timestamp":"2020-06-28 17:33:21"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 deleted post 5ef67d21564fcb717fbc0f64","level":"warn","service":"user-service","timestamp":"2020-06-28 17:33:34"}
+{"message":"GJ4SsXQF9IfVyirXiaKe2L8nwJa2 created a post with content: asd asdas d as d","level":"info","service":"user-service","timestamp":"2020-06-28 17:33:51"}
