@@ -1,5 +1,7 @@
 const { userInfo } = require('os');
 
+var globalVar;
+
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
@@ -42,44 +44,6 @@ MongoClient.connect(url, function(err, db) {
 
 
 
-function populateCollectionBuyings()
-{
-
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("appdb");
-  var query = { email:'John@gmail.com' };
-  dbo.collection("users").find(query).toArray(function(err, result) {
-    if (err) throw err;
-    var query2 = {denumire : "Banana"};
-    dbo.collection("products").find(query2).toArray(function (err, result2){
-        console.log(result);
-        console.log(result2);
-        var myobj = [
-            {id_user : result._id, id_produs : result2._id, timestamp : "1", price:"3", quantity:"5"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "2", price:"2", quantity:"3"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "3", price:"5", quantity:"2"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "4", price:"4", quantity:"5"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "5", price:"3", quantity:"2"},   
-        ]
-    });
-    query2 = {denumire : "Apa"};
-    dbo.collection("products").find(query2).toArray(function (err, result2){
-        console.log(result);
-        console.log(result2);
-        var myobj = [
-            {id_user : result._id, id_produs : result2._id, timestamp : "1", price:"3", quantity:"5"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "2", price:"2", quantity:"3"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "3", price:"5", quantity:"2"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "4", price:"4", quantity:"5"},
-            {id_user : result._id, id_produs : result2._id, timestamp : "5", price:"3", quantity:"2"},   
-        ]
-    });
-    db.close();
-    //console.log(result);
-  });
-}); 
-}
 
 
 function populateCollectionProducts()
@@ -141,7 +105,69 @@ MongoClient.connect(url, function(err, db) {
 // populateCollectionProducts();
 
 
-//populateCollectionBuyings();
 
+function populateCollectionBuyings()
+{
+
+MongoClient.connect(url,{poolSize: 10, bufferMaxEntries: 0, reconnectTries: 5000, useNewUrlParser: true,useUnifiedTopology: true}, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("appdb");
+  var query = { email:'John@gmail.com' };
+  return dbo.collection("users").find(query).toArray(function(err, result) {
+    if (err) throw err;
+    var query2 = {denumire : "Banana"};
+    // dbo.collection("products").find(query2).toArray(function (err, result2){
+    //     console.log(result);
+    //     console.log(result2);
+    //     var myobj = [
+    //         {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "1", price:"3", quantity:"5"},
+    //         {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "2", price:"2", quantity:"3"},
+    //         {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "3", price:"5", quantity:"2"},
+    //         {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "4", price:"4", quantity:"5"},
+    //         {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "5", price:"3", quantity:"2"},   
+    //     ]
+    //     console.log(myobj);
+    //     dbo.collection('buyings').insertMany(myobj, function(err, res) {
+    //         if (err) throw err;
+    //         console.log("Number of documents inserted: " + res.insertedCount);
+    //         db.close();
+    //       });
+    // });
+    query2 = {denumire : "Apa"};
+    return dbo.collection("products").find(query2).toArray(function (err, result2){
+        //console.log(result);
+        //console.log(result2);
+        var myobj = [
+            {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "1", price:"3", quantity:"5"},
+            {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "2", price:"2", quantity:"3"},
+            {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "3", price:"5", quantity:"2"},
+            {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "4", price:"4", quantity:"5"},
+            {id_user : result[0]._id, id_produs : result2[0]._id, timestamp : "5", price:"3", quantity:"2"},   
+        ];
+        //console.log(myobj);
+        
+        dbo.collection('buyings').insertMany(myobj, function(errr, ress) {
+            if (errr) throw errr;
+            console.log("Number of documents inserted: " + ress.insertedCount);
+            db.close();
+          });
+
+        globalVar = myobj;
+        //console.log(globalVar)
+        return myobj;
+    });
+    //db.close();
+    //console.log(result);
+  });
+}); 
+}
+
+
+async function stuff()
+{
+    let myobj =await populateCollectionBuyings();
+}
+
+stuff();
 
 
