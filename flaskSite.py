@@ -99,9 +99,9 @@ def worker():
     global daily_expense
     global weekly_expense
     global monthly_expense
-    daily_expense = Site.get_daily_forecast(Site.security("Bob"))
-    weekly_expense = Site.get_week_forecast(Site.security("Bob"))
-    monthly_expense = Site.get_month_forecast(Site.security("Bob"))
+    daily_expense = round(Site.get_daily_forecast(Site.security("Bob")), 2)
+    weekly_expense = round(Site.get_week_forecast(Site.security("Bob")), 2)
+    monthly_expense = round(Site.get_month_forecast(Site.security("Bob")), 2)
     print("gandalfgandalfgandalfgandalfgandalfgandalfgandalfgandalfgandalfgandalf")
     print(daily_expense)
 
@@ -134,14 +134,15 @@ def show3():
 
 @app.route('/list', methods = ['GET'])
 def foo():
-    
-    aux = [x["quantity"] for x in posts]
+
+    global product_list
+    aux = [x["quantity"] for x in product_list]
     sum = 0.0
     for el in aux:
-        sum += el
-    
+        sum += int(el)
+    print("gandalf")
     d = dict()
-    for x in posts:
+    for x in product_list:
         if (x['product'] in d.keys()):
             d[x['product']] += x['quantity']
         else:
@@ -151,7 +152,7 @@ def foo():
     auxprod = []
     #print (sum)
     for x in d.keys():
-        el = {'product' : x, 'quantity' : round(d[x] / sum * 100, 2)}
+        el = {'product' : x, 'quantity' : round(int(d[x]) / sum * 100, 2)}
         print(el)
         auxprod += [el]
         #auxprod += [{'product' : x['product'], 'quantity' : (x['quantity'] / sum * 100), 'forecast' : x['forecast']}]
