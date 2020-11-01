@@ -14,6 +14,7 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel=”stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -195,9 +196,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">         
 
-
-         
-
           <!-- Content Row -->
           <div class="row">
               <div class="card shadow col-lg-6 mb-4">
@@ -209,11 +207,10 @@
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-header">Options: </div>
+                      <a id="addProductAnchor" class="dropdown-item" href="#" data-toggle="modal" data-target="#addProductModal">Add product</a>
+                      <!-- <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>
                   </div>
                 </div>
@@ -290,6 +287,77 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+
+  <!-- addProductModal-->
+  <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a new product</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="addProductForm">
+            <div>
+              <span>Product Name</span>
+              <input placeholder="Milk" type="text" name="product-name" id="product-name">
+            </div>
+
+            <div>
+              <span>Producer name</span>
+              <input placeholder="Zozo" type="text" name="producer-name">
+            </div>
+
+            <div>
+              <span>Rating</span>
+              <div class="star-rating">
+                <i class="fa fa-star checked" id="one"></i> 
+                <i class="fa fa-star unchecked" id="two"></i>
+                <i class="fa fa-star unchecked" id="three"></i>
+                <i class="fa fa-star unchecked" id="four"></i>
+                <i class="fa fa-star unchecked" id="five"></i>
+              </div>
+            </div>
+
+            <div>
+              <span>Shop</span>
+              <input placeholder="Mega" type="text" name="shop">
+            </div>
+
+            <div >
+              <span>Price</span>
+              <input placeholder="Price" type="number" name="price">
+            </div>
+            
+            <div >
+              <span>Category</span>
+              <select name="category" id="category">
+                <option value="Essentials">Essentials</option>
+                <option value="Travel">Travel</option>
+                <option value="Sweets">Sweets</option>
+                <option value="Clothing">Clothing</option>
+              </select>
+            </div>      
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+          <a href="#" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+              <i class="fas fa-check"></i>
+            </span>
+            <span id="addItProduct" class="text">Add it</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -323,6 +391,11 @@
   <script src="js/rating.js"></script>
   <script src="js/main.js"></script>
 
+  <!-- Google Maps API -->
+  <script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD51GbfHASRiQK7JNfWwt4D4EBHbIzk4p8&callback=initMap">
+  </script>
+      
 
 </body>
 

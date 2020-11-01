@@ -1,0 +1,33 @@
+.modal-body form div {
+    display: flex;
+    justify-content: space-between;  
+}
+
+.star-rating
+{
+  height:50px;
+  width:200px;
+  margin:auto;
+  margin-top:100px;
+}
+.fa
+{
+  font-size:30px !important;
+  cursor:pointer;
+}
+.checked
+{
+  color:gold;
+}
+.unchecked
+{
+  color:black;
+}
+
+.modal-body form div span {
+    margin: 1.5rem 0 0 0;
+}
+
+.star-rating {
+    margin: 1rem .1rem 0 auto;
+}
